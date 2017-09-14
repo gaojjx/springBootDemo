@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.domain.City;
 import com.example.demo.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,12 +30,12 @@ public class CityController {
         return cityService.deleteCity(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public String updateCity(@RequestBody City city) {
         return cityService.updateCity(city);
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public String addCity(@RequestBody City city) {
         return cityService.addCity(city);
     }
