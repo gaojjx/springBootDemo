@@ -6,6 +6,7 @@ spring:
 
 mybatis:
   type-aliases-package: com.example.mapper
+  config-location: mybatis/mybatis-config.xml
 
 logging:
   level: trace

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.City;
+import com.example.demo.entity.City;
 import com.example.demo.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
