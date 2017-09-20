@@ -4,6 +4,14 @@
 <configuration>
     <properties resource="mybatis/mybatis.properties"/>
 
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!--<typeAliases>-->
+        <!--<package name="com.example.demo.mapper.*"/>-->
+    <!--</typeAliases>-->
+
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"></transactionManager>

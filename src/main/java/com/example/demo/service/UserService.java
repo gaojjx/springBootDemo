@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.User;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface UserService {
     String deleteUserById(Integer id);
 
     String addUser(User user);
+
+    HSSFWorkbook exportUsers();
+
 }
