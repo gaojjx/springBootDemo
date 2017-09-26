@@ -85,12 +85,4 @@
       and r.region_code like '${parentId}%'
     </if>
   </select>
-  <select id="findLastLevelRegion" resultType="com.example.demo.entity.LastLevelRegion" parameterType="com.example.demo.entity.Region">
-    select id, region_type, region_code, `name`
-    from region r
-    where region_type = 32
-    <if test="parentId != null and parentId != ''">
-      and r.region_code like '${parentId}%'
-    </if>
-  </select>
 </mapper>

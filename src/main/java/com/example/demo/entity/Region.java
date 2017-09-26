@@ -45,6 +45,10 @@ public class Region {
      */
     private String regionCode;
 
+    private String groupId;
+
+    private Integer size;
+
     public String getId() {
         return id;
     }
@@ -93,15 +97,19 @@ public class Region {
         this.regionCode = regionCode;
     }
 
-    @Override
-    public String toString() {
-        return "Region{" +
-                "id='" + id + '\'' +
-                ", regionType=" + regionType +
-                ", parentId='" + parentId + '\'' +
-                ", name='" + name + '\'' +
-                ", list=" + list +
-                ", regionCode='" + regionCode + '\'' +
-                '}';
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
     }
 }

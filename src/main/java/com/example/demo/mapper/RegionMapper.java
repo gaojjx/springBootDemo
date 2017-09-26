@@ -1,8 +1,8 @@
 package com.example.demo.mapper;
 
-import com.example.demo.entity.LastLevelRegion;
 import com.example.demo.entity.Region;
 import org.apache.ibatis.annotations.Mapper;
+
 
 import java.util.List;
 
@@ -49,7 +49,5 @@ public interface RegionMapper {
     int updateByPrimaryKey(Region record);
 
     List<Region> findRegion(Region region);
-
-    List<LastLevelRegion> findLastLevelRegion(Region region);
 
 }

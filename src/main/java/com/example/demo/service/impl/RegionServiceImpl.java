@@ -25,13 +25,21 @@ public class RegionServiceImpl implements RegionService{
         Region root = regionMapper.selectByPrimaryKey("51162300000000000000000000028813");
         searchRegion = getRegionParam(root);
         List<Region> secondRegionList = findRegion(searchRegion);
+        String groupId;
+        //查询第二级
         for (Region secondRegion : secondRegionList) {
             searchRegion = getRegionParam(secondRegion);
             List<Region> thirdRegionList = findRegion(searchRegion);
+            //查询第三级
             for (Region thirdRegion : thirdRegionList) {
                 searchRegion = getRegionParam(thirdRegion);
-                thirdRegion.setList(findRegion(searchRegion));
-//                List<LastLevelRegion> lastLevelRegionList = regionMapper.findLastLevelRegion(searchRegion);
+                List<Region> lastLevelRegionList = findRegion(searchRegion);
+                //查询第四级
+                if (lastLevelRegionList != null && lastLevelRegionList.size() > 0) {
+                    groupId = lastLevelRegionList.get(0).getId();
+                    thirdRegion.setGroupId(groupId.substring(0, groupId.length() - 2));
+                    thirdRegion.setSize(lastLevelRegionList.size());
+                }
             }
             secondRegion.setList(thirdRegionList);
         }
@@ -39,7 +47,11 @@ public class RegionServiceImpl implements RegionService{
         return root;
     }
 
-    Region getRegionParam(Region region) {
+    /**
+     * @param region
+     * @return
+     */
+    private Region getRegionParam(Region region) {
         Region param = new Region();
         param.setRegionType(region.getRegionType() << 1);
         param.setParentId(region.getRegionCode());
