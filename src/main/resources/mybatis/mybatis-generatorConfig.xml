@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <context id="test" targetRuntime="MyBatis3Simple">
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.99.100/test"
-            userId="test" password="test"/>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://52.80.49.240/db_locatiot"
+            userId="family_doctor" password="d$QNvwJ#dN76&amp;%60"/>
         <javaModelGenerator targetPackage="com.example.demo.entity" targetProject="${user.dir}/src/main/java" />
         <sqlMapGenerator targetPackage="mybatis/mappers" targetProject="${user.dir}/src/main/resources"/>
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.mapper"
@@ -14,6 +14,6 @@
         </javaClientGenerator>
 
 
-        <table tableName="city" ></table>
+        <table tableName="" ></table>
     </context>
 </generatorConfiguration>
