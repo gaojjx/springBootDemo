@@ -17,7 +17,7 @@ public class Regionalism {
      *
      * @mbg.generated Mon Sep 25 11:06:52 CST 2017
      */
-    private Integer regionCode;
+    private Long regionCode;
 
     /**
      *
@@ -87,7 +87,7 @@ public class Regionalism {
      *
      * @mbg.generated Mon Sep 25 11:06:52 CST 2017
      */
-    public Integer getRegionCode() {
+    public Long getRegionCode() {
         return regionCode;
     }
 
@@ -99,7 +99,7 @@ public class Regionalism {
      *
      * @mbg.generated Mon Sep 25 11:06:52 CST 2017
      */
-    public void setRegionCode(Integer regionCode) {
+    public void setRegionCode(Long regionCode) {
         this.regionCode = regionCode;
     }
 
@@ -197,5 +197,17 @@ public class Regionalism {
      */
     public void setDelFlag(String delFlag) {
         this.delFlag = delFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "Regionalism{" +
+                "id=" + id +
+                ", regionCode=" + regionCode +
+                ", regionName='" + regionName + '\'' +
+                ", parentCode=" + parentCode +
+                ", remarks='" + remarks + '\'' +
+                ", delFlag='" + delFlag + '\'' +
+                '}';
     }
 }

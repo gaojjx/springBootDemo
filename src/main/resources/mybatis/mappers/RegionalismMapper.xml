@@ -36,6 +36,14 @@
       #{parentCode,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}
       )
   </insert>
+  <insert id="insertBatch" parameterType="java.util.List">
+    INSERT INTO regionalism (region_code, region_name, parent_code)
+    values
+      <foreach collection="list" item="regionalism" separator=",">
+        (#{regionalism.regionCode}, #{regionalism.regionName}, #{regionalism.parentCode})
+      </foreach>
+  </insert>
+
   <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Regionalism">
     <!--
       WARNING - @mbg.generated
