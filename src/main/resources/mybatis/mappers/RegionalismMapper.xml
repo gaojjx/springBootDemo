@@ -77,4 +77,17 @@
     select id, region_code, region_name, parent_code, remarks, del_flag
     from regionalism
   </select>
+
+  <select id="findList" resultType="com.example.demo.entity.Regionalism" parameterType="com.example.demo.entity.Regionalism">
+    SELECT region_code regionCode, region_name regionName
+    FROM db_location.regionalism
+    <where>
+      <if test="id != null and id != ''">
+        and id = ${id}
+      </if>
+      <if test="parentCode != null">
+        and parent_code = ${parentCode}
+      </if>
+    </where>
+  </select>
 </mapper>

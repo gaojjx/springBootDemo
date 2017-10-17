@@ -48,4 +48,6 @@ public interface RegionalismMapper {
     int updateByPrimaryKey(Regionalism record);
 
     int insertBatch(List<Regionalism> list);
+
+    List<Regionalism> findList(Regionalism regionalism);
 }
