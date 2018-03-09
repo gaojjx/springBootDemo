@@ -18,39 +18,46 @@ public class ParseCreateSql {
         ParseCreateSql parseCreateSql = new ParseCreateSql();
 //        String sqlPath = "/Users/gaojjx/code/springBootDemo/src/main/resources/data.sql";
 //        parseCreateSql.readSql(sqlPath);
-        String sql = "CREATE TABLE `exam_life_style` (\n" +
-                "`id` varchar(32) NOT NULL COMMENT '自增主键',\n" +
-                "`phis_id` varchar(32) DEFAULT '' COMMENT 'phis接口返回id',\n" +
-                "`exam_id` varchar(32) NOT NULL COMMENT '外键：exam_master表ID',\n" +
-                "`exercise_frequency` tinyint(3) unsigned DEFAULT NULL COMMENT '锻炼频率\\r\\n1、每天 2、每周一次以上 3、偶尔 4、不锻炼',\n" +
-                "`each_exercise_time` smallint(5) unsigned DEFAULT NULL COMMENT '每次锻炼时间\\r\\n单位 ：分钟',\n" +
-                "`exercise_time` decimal(3,1) unsigned DEFAULT NULL COMMENT '坚持锻炼时间\\r\\n单位：年',\n" +
-                "`exercise_method` varchar(64) DEFAULT '' COMMENT '锻炼方式',\n" +
-                "`exercise_week_times` tinyint(3) unsigned DEFAULT NULL COMMENT '每周锻炼次数',\n" +
-                "`diet` tinyint(3) unsigned DEFAULT NULL COMMENT '饮食习惯\\r\\n1、荤素均衡 2、荤食为主 3、素食为主 4、嗜盐 5、嗜油 6、嗜糖',\n" +
-                "`smoking_status` tinyint(3) unsigned DEFAULT NULL COMMENT '吸烟状况\\r\\n1、从不吸烟 2、已戒烟 3、吸烟',\n" +
-                "`smoking` tinyint(3) unsigned DEFAULT NULL COMMENT '日吸烟量 单位：根',\n" +
-                "`smoking_age` tinyint(3) unsigned DEFAULT NULL COMMENT '开始吸烟年龄',\n" +
-                "`age_quit` tinyint(3) unsigned DEFAULT NULL COMMENT '戒烟年龄',\n" +
-                "`drinking_frequency` tinyint(3) unsigned DEFAULT NULL COMMENT '饮酒频率\\r\\n1 、从不  2、偶尔 3、经常 4、 每天',\n" +
-                "`daily_alcoholake` decimal(10,2) unsigned DEFAULT NULL COMMENT '日饮酒量 两',\n" +
-                "`has_alcohol` tinyint(3) unsigned DEFAULT NULL COMMENT '是否戒酒\\r\\n1、未戒 2、已戒',\n" +
-                "`alcohol_age` tinyint(3) unsigned DEFAULT NULL COMMENT '戒酒年龄',\n" +
-                "`age_started_drinking` tinyint(3) unsigned DEFAULT NULL COMMENT '开始饮酒年龄',\n" +
-                "`has_drunk_last_year` tinyint(3) unsigned DEFAULT NULL COMMENT '近一年内是否曾醉酒\\r\\n1、是  2、否',\n" +
-                "`alcohol_type` varchar(32) DEFAULT '' COMMENT '饮酒种类\\r\\n1 、白酒 2、 啤酒 3 、红酒 4、 黄酒 5、 其他',\n" +
-                "`has_oe` tinyint(3) unsigned DEFAULT NULL COMMENT '是否职业暴露 1 无 2 有',\n" +
-                "`occupation` varchar(32) DEFAULT '' COMMENT '工种',\n" +
-                "`working_time` tinyint(3) unsigned DEFAULT NULL COMMENT '从业时间(1-100)年',\n" +
-                "`createtime` bigint(20) unsigned NOT NULL COMMENT '创建时间',\n" +
-                "`updatetime` bigint(20) unsigned NOT NULL COMMENT '更新时间',\n" +
-                "`data_status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '数据状态 0 未公开，1 正常，2 停用，3已删',\n" +
-                "PRIMARY KEY (`id`)\n" +
-                ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='生活方式';\n" +
-                "\n";
+        String sql = "CREATE TABLE `ejiaren_order` (\n" +
+                "  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',\n" +
+                "  `weahan_code` varchar(128) NOT NULL COMMENT '系统编码',\n" +
+                "  `patient_code` varchar(128) DEFAULT NULL COMMENT '患者编码',\n" +
+                "  `patient_name` varchar(64) NOT NULL COMMENT '患者姓名',\n" +
+                "  `telphone` varchar(64) NOT NULL COMMENT '电话',\n" +
+                "  `card_id` varchar(18) NOT NULL COMMENT '身份证号',\n" +
+                "  `sex` tinyint(2) DEFAULT NULL COMMENT '性别(1.男2.女)',\n" +
+                "  `birth_day` bigint(20) DEFAULT NULL COMMENT '生日',\n" +
+                "  `address` varchar(128) DEFAULT NULL COMMENT '家庭地址',\n" +
+                "  `triage_officer_name` varchar(64) DEFAULT NULL COMMENT '分诊员姓名',\n" +
+                "  `guider` varchar(64) DEFAULT NULL COMMENT '导诊员姓名',\n" +
+                "  `controller` varchar(64) DEFAULT NULL COMMENT '指派人',\n" +
+                "  `designate_time` varchar(64) DEFAULT NULL COMMENT '指派时间',\n" +
+                "  `guide_time` bigint(20) DEFAULT NULL COMMENT '导诊时间/就诊时间',\n" +
+                "  `triage_guide_status` tinyint(4) DEFAULT NULL COMMENT '分诊导诊状态(0.待分诊1.已分诊/待指派2已指派/待导诊3.导诊中/就诊中4.已完成)',\n" +
+                "  `main_symptom` varchar(64) NOT NULL COMMENT '主要症状',\n" +
+                "  `main_symptom_time` varchar(64) DEFAULT NULL COMMENT '主要症状持续时间',\n" +
+                "  `minor_symptom` varchar(64) DEFAULT NULL COMMENT '次要症状',\n" +
+                "  `minor_symptom_time` varchar(64) DEFAULT NULL COMMENT '次要症状时间',\n" +
+                "  `expect_treat_time` varchar(64) NOT NULL COMMENT '期望就诊时间',\n" +
+                "  `free_status` tinyint(2) NOT NULL DEFAULT 2 COMMENT '是否免费(1.是2.否)',\n" +
+                "  `order_status` tinyint(2) DEFAULT NULL COMMENT '订单状态(1.未完成 2.已完成)',\n" +
+                "  `driver` varchar(64) DEFAULT NULL COMMENT '司机姓名',\n" +
+                "  `driver_tel` varchar(18) DEFAULT NULL COMMENT '司机联系电话',\n" +
+                "  `aboard_address` varchar(128) DEFAULT NULL COMMENT '上车地址',\n" +
+                "  `summary` varchar(512) DEFAULT NULL COMMENT '说明',\n" +
+                "  `display_order` bigint(20) NOT NULL COMMENT '排序号',\n" +
+                "  `data_status` tinyint(4) NOT NULL,\n" +
+                "  `createtime` bigint(20) NOT NULL COMMENT '创建时间',\n" +
+                "  `createby` varchar(64) DEFAULT NULL COMMENT '创建人',\n" +
+                "  `updatetime` bigint(20) NOT NULL COMMENT '更新时间',\n" +
+                "  `updateby` varchar(64) DEFAULT NULL COMMENT '更新人',\n" +
+                "  PRIMARY KEY (`id`)\n" +
+                ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';";
         EntityModel model = parseCreateSql.getColumn(sql);
-        String json = parseCreateSql.tableSql2Json(model);
+        String json = parseCreateSql.createTableSql2Json(model);
         System.out.println(json);
+        String markdown = parseCreateSql.parse2MarkdownTable(model);
+        System.out.println(markdown);
     }
     public String readSql(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path));
@@ -64,14 +71,14 @@ public class ParseCreateSql {
 
     public EntityModel getColumn(String string) {
         String[] columns = string.split("\n");
-        String ColumnPattern = "^`(\\w+)`\\s(\\w+).*COMMENT\\s'((.*))'";
+        String ColumnPattern = "^\\s+`(\\w+)`\\s+(\\w+).*COMMENT\\s+'(.*)'";
         EntityModel entityModel = new EntityModel();
         entityModel.setTableName(columns[0]);
         List<ColumnModel> columnList = new ArrayList<>();
         ColumnModel columnModel;
         for (String s : columns) {
             Pattern r = Pattern.compile(ColumnPattern, Pattern.CASE_INSENSITIVE);
-            Matcher matcher = r.matcher(s);
+            Matcher matcher = r.matcher(s.trim());
             if (matcher.find()) {
                 columnModel = new ColumnModel();
                 columnModel.setColumnName(matcher.group(1));
@@ -84,7 +91,7 @@ public class ParseCreateSql {
         return entityModel;
     }
 
-    public String tableSql2Json(EntityModel model) {
+    public String createTableSql2Json(EntityModel model) {
         if (model != null && model.getColumnList() != null && model.getColumnList().size() > 0) {
             StringBuilder sb = new StringBuilder("{\n");
             for (ColumnModel column : model.getColumnList()) {
@@ -103,7 +110,7 @@ public class ParseCreateSql {
         StringBuilder sb = new StringBuilder("| 字段名 | 类型 | 含义 |\n" +
                 "|---|---|---|");
         for (ColumnModel column : model.getColumnList()) {
-            sb.append("\n| " + column.getColumnName() + " | " + columnType(column.getColumnType()) + " | " + column.getComment() + " |");
+            sb.append("\n| " + StringUtil.underlineToCamel(column.getColumnName()) + " | " + columnType(column.getColumnType()) + " | " + column.getComment() + " |");
         }
         return sb.toString();
     }
@@ -123,6 +130,9 @@ public class ParseCreateSql {
                 break;
             case "bigint":
                 columnType = "Number";
+                break;
+            case "tinyint":
+                columnType = "Byte";
                 break;
             default:
                 columnType = "";

@@ -62,11 +62,11 @@ public class StringUtil {
             if (param == null || param.length() < 1) {
                 return param;
             }
-            return firstToUpper(param.toLowerCase());
+            return firstToLower(param.toLowerCase());
         }
         String[] arr = param.split("_");
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < arr.length; i++) {
+        StringBuffer sb = new StringBuffer(firstToLower(arr[0]));
+        for (int i = 1; i < arr.length; i++) {
             sb.append(firstToUpper(arr[i].toLowerCase()));
         }
         return sb.toString();
@@ -190,7 +190,7 @@ public class StringUtil {
         }
     }
 
-    public String firstToLower(String str) {
+    public static String firstToLower(String str) {
         try {
             if (str == null) {
                 return str;
